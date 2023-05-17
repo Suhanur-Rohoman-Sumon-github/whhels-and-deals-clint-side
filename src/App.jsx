@@ -5,7 +5,7 @@ import Footer from './pages/shered/footer/Footer';
 
 const App = () => {
   return (
-    <div>
+    <div className='w-11/12 mx-auto'>
       <Navbar />
       <Outlet />
       <Footer />
