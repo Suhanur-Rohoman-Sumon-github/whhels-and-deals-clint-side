@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/Authprovider';
 
 const Navbar = () => {
-    const {user,logOut} = useContext(AuthContext)
-    const handleLogout = () =>{
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogout = () => {
         logOut()
     }
     return (
@@ -23,7 +23,12 @@ const Navbar = () => {
                             <li> <Link to={'/'}> Blogs</Link> </li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <Link to={'/'}>
+                        <div className='flex items-center'>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR52zCO3VG8E5YLkejXT4o_BAFjlNsd1lK80WVURovBPOI1P8wzrAiE&s=0" className='h-10 w-10' alt="" /> 
+                     <h1>Wheels And Deels</h1>
+                        </div>
+                      </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
