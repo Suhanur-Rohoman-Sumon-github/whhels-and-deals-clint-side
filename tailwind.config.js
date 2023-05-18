@@ -8,18 +8,17 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
-  themes: ["light", "dark"],
   themes: [
     {
       mytheme: {
       
-"primary": "#570DF8",
+"primary": "#74C3A5",
       
-"secondary": "#F000B8",
+"secondary": "#9672A7",
       
 "accent": "#37CDBE",
       
-"neutral": "#3D4451",
+"neutral": "#E5B263",
       
 "base-100": "#FFFFFF",
       
