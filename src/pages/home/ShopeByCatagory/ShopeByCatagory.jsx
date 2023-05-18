@@ -24,9 +24,9 @@ const ShopeByCatagory = () => {
         <div>
             <h1 className='text-center text-black font-bold text-4xl py-11'>this is our shope by catagory section</h1>
             <div>
-                <Tabs data-aos="fade-up">
+                <Tabs >
                     <TabList className={'text-4xl'}>
-                        <Tab>sports car</Tab>
+                        <Tab >sports car</Tab>
                         <Tab>truck</Tab>
                         <Tab>regular car</Tab>
                         <Tab>mini fire truck</Tab>
