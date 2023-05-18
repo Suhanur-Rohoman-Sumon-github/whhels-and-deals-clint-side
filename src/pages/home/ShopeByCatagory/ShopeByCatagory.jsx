@@ -40,17 +40,18 @@ const ShopeByCatagory = () => {
 
     return (
         <div className='bg-slate-300'>
-            <h1 className='text-center text-black font-bold text-4xl py-11'>this is our shope by catagory section</h1>
-            <div>
-                <Tabs className={'text-white'}>
-                    <TabList className={'text-4xl '}>
-                        <Tab >sports car</Tab>
-                        <Tab>truck</Tab>
-                        <Tab>mini police car</Tab>
+            <h1  data-aos="fade-up" className='text-center text-black font-bold text-4xl py-11'>this is our shope by catagory section</h1>
+            <div >
+                <Tabs  data-aos="fade-up" className={'text-white'}>
+                    <TabList className={'text-4xl text-center'}>
+                        <Tab className={'btn btn-error mx-4 text-white'}>sports car</Tab>
+                        <Tab className={'btn btn-error mx-4 text-white'}>truck</Tab>
+                        <Tab className={'btn btn-error mx-4 text-white'}> mini police car</Tab>
                     </TabList>
 
-                    <TabPanel data-aos="fade-up">
-                        <div className='grid lg:grid-cols-3 gap-4 mt-4'>
+                  <div >
+                  <TabPanel data-aos="fade-left">
+                        <div className='grid lg:grid-cols-3 gap-4 pt-12 pb-20 '>
                             {
                                 cars.map(car => <SingleCars
                                     key={car._id}
@@ -59,8 +60,8 @@ const ShopeByCatagory = () => {
                             }
                         </div>
                     </TabPanel>
-                    <TabPanel data-aos="fade-up">
-                        <div className='grid lg:grid-cols-3 gap-4 mt-4'>
+                    <TabPanel data-aos="fade-left">
+                        <div className='grid lg:grid-cols-3 gap-4 mt-4 pt-12 pb-20 '>
                             {
                                 trucks.map(truck =><SingleTruks 
                                 key={truck._id}
@@ -69,8 +70,8 @@ const ShopeByCatagory = () => {
                             }
                         </div>
                     </TabPanel >
-                    <TabPanel data-aos="fade-up">
-                        <div className='grid lg:grid-cols-3 gap-4 mt-4'>
+                    <TabPanel data-aos="fade-left">
+                        <div className='grid lg:grid-cols-3 gap-4 mt-4 pt-12 pb-20 '>
                             {
                                 polices.map(police =><PoliceCartDtails 
                                 key={police._id}
@@ -79,6 +80,7 @@ const ShopeByCatagory = () => {
                             }
                         </div>
                     </TabPanel>
+                  </div>
                 </Tabs>
             </div>
         </div>

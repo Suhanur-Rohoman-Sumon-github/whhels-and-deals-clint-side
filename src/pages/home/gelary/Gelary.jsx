@@ -19,7 +19,7 @@ const Gelary = () => {
         });
     }, []);
     return (
-        <div className='bg-gray-300'>
+        <div className='bg-gray-400'>
             <h1 data-aos="fade-up" className='text-center text-black font-bold text-4xl py-11'> Our latest cullections</h1>
             <div data-aos="fade-up" className='grid lg:grid-cols-3 gap-6'>
                 {

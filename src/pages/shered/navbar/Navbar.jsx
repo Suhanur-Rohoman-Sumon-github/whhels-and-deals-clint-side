@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../provider/Authprovider';
 
 const Navbar = () => {
@@ -16,27 +16,27 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li> <Link to={'/'}>Home</Link> </li>
-                            <li> <Link to={'/'}>All Toys</Link> </li>
-                            <li> <Link to={'/'}>Add A Toy</Link> </li>
-                            <li> <Link to={'/'}>My Toys</Link> </li>
-                            <li> <Link to={'/'}> Blogs</Link> </li>
+                            <li> <NavLink className={({ isActive }) => isActive ? 'text-white' : 'nothing'}  to={'/'}>Home</NavLink> </li>
+                            <li> <NavLink className={({ isActive }) => isActive ? 'text-white' : 'nothing'} to={'/alltoyes'}>All Toys</NavLink> </li>
+                            <li> <NavLink className={({ isActive }) => isActive ? 'text-white' : 'nothing'} to={'/addtoyes'}>Add A Toy</NavLink> </li>
+                            <li> <NavLink className={({ isActive }) => isActive ? 'text-white' : 'nothing'} to={'/mytoyes'}>My Toys</NavLink> </li>
+                            <li> <NavLink className={({ isActive }) => isActive ? 'text-white' : 'nothing'} to={'/blog'}> Blogs</NavLink> </li>
                         </ul>
                     </div>
                     <Link to={'/'}>
                         <div className='flex items-center'>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR52zCO3VG8E5YLkejXT4o_BAFjlNsd1lK80WVURovBPOI1P8wzrAiE&s=0" className='h-10 w-10' alt="" /> 
-                     <h1>Wheels And Deels</h1>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR52zCO3VG8E5YLkejXT4o_BAFjlNsd1lK80WVURovBPOI1P8wzrAiE&s=0" className='h-10 w-10' alt="" />
+                            <h1>Wheels And Deels</h1>
                         </div>
-                      </Link>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li> <Link to={'/'}>Home</Link> </li>
-                        <li> <Link to={'/'}>All Toys</Link> </li>
-                        <li> <Link to={'/'}>Add A Toy</Link> </li>
-                        <li> <Link to={'/'}>My Toys</Link> </li>
-                        <li> <Link to={'/'}> Blogs</Link> </li>
+                        <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/'}>Home</NavLink> </li>
+                        <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/alltoyes'}>All Toys</NavLink> </li>
+                        <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/addtoyes'}>Add A Toy</NavLink> </li>
+                        <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/mytoyes'}>My Toys</NavLink> </li>
+                        <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/blog'}> Blogs</NavLink> </li>
                     </ul>
                 </div>
                 <div className="navbar-end">

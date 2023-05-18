@@ -13,9 +13,9 @@ const WhyChoseUs = () => {
         });
     }, []);
     return (
-        <div className='  bg-gray-400'>
+        <div className='  bg-gray-400 '>
             <h1 data-aos="fade-up" className='text-center text-white font-bold text-4xl py-11'> Why chose use </h1>
-            <div className='grid md:grid-cols-5 p-4 ' data-aos="fade-up">
+            <div className='grid md:grid-cols-5 p-4 py-40' data-aos="fade-up">
                 <div>
                     <h1 className='text-white font-bold text-xl text-center'>Innovative Designs</h1>
                     <Circle className='w-32 h-32 mt-6 mx-auto' percent={90} strokeWidth={4} strokeColor="#3ABFF8" />

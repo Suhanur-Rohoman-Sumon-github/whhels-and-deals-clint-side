@@ -6,6 +6,10 @@ import Sinup from "../pages/Login-and-Sinup/sinup/Sinup";
 import CarsDtails from "../pages/home/ShopeByCatagory/cars/CarsDtails";
 import TrukCartDetails from "../pages/home/ShopeByCatagory/truks/TrukCartDetails";
 import SinglePolices from "../pages/home/ShopeByCatagory/police/SinglePolices";
+import AllTyos from "../pages/allTyoes/AllTyos";
+import AddToyes from "../pages/addtoyes/AddToyes";
+import Blog from "../pages/blog/Blog";
+import MyToyes from "../pages/myTooyes/MyToyes";
 
 const router = createBrowserRouter ([
     {
@@ -36,11 +40,26 @@ const router = createBrowserRouter ([
             path:'/police/:id',
             element:<SinglePolices />,
             loader:({params})=>fetch(`http://localhost:5001/police/${params.id}`)
-           }
+           },
+           {
+            path:'/alltoyes',
+            element:<AllTyos />
+        },
+        {
+            path:'/blog',
+            element:<Blog />
+        },
+        {
+            path:'/addtoyes',
+            element:<AddToyes />
+        },
+        {
+            path:'/mytoyes',
+            element:<MyToyes/>
+        }
         ]
-    },
-    {
-        path:'/alltyes'
     }
+    
+
 ])
 export default router
