@@ -1,19 +1,19 @@
 import React from 'react';
-import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from 'react-rating';
+import { FaRegStar, FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const SingleCars = ({ car }) => {
-    const { _id, Picture, Name, Price, Ratings } = car
+const PoliceCartDtails = ({police}) => {
+    const { _id, Picture, Name, Price, Ratings } = police
     return (
         <div className="card w-full bg-base-100 shadow-xl">
-            <figure><img src={Picture} className='w-full h-64' alt="Shoes" /></figure>
+            <figure><img src={Picture} className='w-full h-52' alt="Shoes" /></figure>
             <div className="card-body ">
                 <div className='flex justify-between items-center'>
                     <div>
-                        <h2 className="card-title text-black">{Name}</h2>
-                        <p className=' text-black'>{Price}</p>
-                        <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                        <h2 className="card-title text-black" >{Name}</h2>
+                        <p className='text-black'>{Price}</p>
+                        <p className='font-bold text-black'>ratings : <Rating className='ml-2'
                             placeholderRating={Ratings}
                             readonly
                             emptySymbol={<FaRegStar />}
@@ -22,7 +22,7 @@ const SingleCars = ({ car }) => {
                         /></p>
                     </div>
                     <div>
-                        <Link to={`/cars/${_id}`}><button className="btn btn-error btn-outline">Veiw dtails</button></Link>
+                        <Link to={`/police/${_id}`}><button className="btn btn-error btn-outline">Veiw dtails</button></Link>
                     </div>
                 </div>
             </div>
@@ -30,4 +30,4 @@ const SingleCars = ({ car }) => {
     );
 };
 
-export default SingleCars;
+export default PoliceCartDtails;

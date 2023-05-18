@@ -40,7 +40,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to={'/login'}><button className='btn btn-error text-white'>login</button></Link>
+                    {!user && <Link to={'/login'}><button className='btn btn-error text-white'>login</button></Link>}
                     {user && <button onClick={handleLogout} className='btn btn-error text-white'>logut</button>}
                 </div>
             </div>
