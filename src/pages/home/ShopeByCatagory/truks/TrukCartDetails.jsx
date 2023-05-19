@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 const TrukCartDetails = () => {
     const track = useLoaderData()
     console.log(track)
-    const { _id, Picture, Name, Price, discription } = track
+    const { _id, Picture, Name,  discription } = track
     return (
         <div>
             <section>

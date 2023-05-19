@@ -3,25 +3,29 @@ import { AuthContext } from '../../provider/Authprovider';
 
 const AddToyes = () => {
     const [selectedCar, setSelectedCar] = useState('');
+    const [selectedSubCar, setSelectedSubCar] = useState('');
     const { user } = useContext(AuthContext)
     const handleCarChange = (event) => {
         setSelectedCar(event.target.value);
+    };
+    const handleSubChange = (event) => {
+        setSelectedSubCar(event.target.value);
     };
     const handleAdd = (event) => {
         event.preventDefault()
         const form = event.target
         const name = form.name.value
-        const toy = form.toy.value
+        const toy = selectedSubCar
         const price = form.price.value
-        const availbaleQuantity = form.price.value
+        const availbaleQuantity = form.availbaleQuantity.value
         const img = form.img.value
         const subCatagory = selectedCar;
-        const textarea = form.textarea.value
+        const details = form.textarea.value
         const newData = {
             name,
             toy,
             price,
-            textarea,
+            details,
             img,
             availbaleQuantity,
             subCatagory
@@ -49,14 +53,30 @@ const AddToyes = () => {
                 <div className='w-10/12 mx-auto border  border-error p-4'>
                     <form onSubmit={handleAdd}>
                         <div>
-                            <input type="text" value={user?.displayName } placeholder="name" name='name' required className="input w-1/2  input-bordered " />
-                            <input type="text" name='toy' placeholder="toy name" className="input w-1/2 input-bordered" />
-                        </div>
-                        <div>
-                            <select id="cars" onChange={handleCarChange} className='w-1/2 border py-3 rounded-md' name="subCatagory" form="carform">
+                            <input type="text" value={user?.email } placeholder="name" name='name' required className="input w-1/2  input-bordered " />
+                            <select id="cars" onChange={handleSubChange} className='w-1/2 border py-3 rounded-md' name="subCatagory" form="carform">
                                 <option value="sports car">sports car</option>
                                 <option value="truck">truck </option>
                                 <option value="mini police car">mini police car</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select id="cars" onChange={handleCarChange} className='w-1/2 border py-3 rounded-md' name="subCatagory" form="carform">
+                                <option value="Red Sports Car">Red Sports Car</option>
+                                <option value="Blue Racing Car">Blue Racing Car</option>
+                                <option value="Yellow Speedster">Yellow Speedster</option>
+                                <option value="Green Formula Car">Green Formula Car</option>
+                                <option value="Orange Drift Car">Orange Drift Car </option>
+                                <option value="Silver Supercar">Silver Supercar</option>
+                                <option value="Blaze Runner">Blaze Runner</option>
+                                <option value="Monster Mover">Monster Mover </option>
+                                <option value="Turbo Trucker">Turbo Trucker</option>
+                                <option value="Mighty Hauler">Mighty Hauler</option>
+                                <option value="Siren Squad Car">Siren Squad Car</option>
+                                <option value="Crime Buster Cruiser">Crime Buster Cruiser</option>
+                                <option value="Pursuit Enforcer">sports car</option>
+                                <option value="Patrol Guardian">Patrol Guardian</option>
+                                <option value="Rapid Response Unit">Rapid Response Unit</option>
                             </select>
                             <input type="text" placeholder="price" name='price' className="input w-1/2 input-bordered mt-4 " />
                         </div>

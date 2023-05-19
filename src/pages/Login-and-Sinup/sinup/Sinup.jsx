@@ -19,11 +19,12 @@ const Sinup = () => {
 
         handleSinups(email, password)
             .then((result) => {
-                console.log(result.user)
-                navigat('/')
-                updateProfile(auth.currentUser, {
+                console.log(result)
+                updateProfile(auth,result, {
                     displayName: name, photoURL: imgUrl
                 })
+                console.log(displayName)
+                navigat('/')
             })
             .catch(error => console.error(error))
     }

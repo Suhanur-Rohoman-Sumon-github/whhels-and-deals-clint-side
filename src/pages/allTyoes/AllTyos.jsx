@@ -31,13 +31,13 @@ const AllTyos = () => {
                         {/* head */}
                         <thead>
                             <tr>
-                                <th>user name</th>
                                 <th>user picture</th>
-                                <th>publish date</th>
-                                <th>product img</th>
-                                <th>product name</th>
-                                <th>product price</th>
-                                <th></th>
+                                <th>user name</th>
+                                <th>price</th>
+                                <th>Catagoty</th>
+                                <th>sub catagory</th>
+                                <th>availbale products</th>
+                                <th>dtails</th>
                             </tr>
                         </thead>
                         <tbody >

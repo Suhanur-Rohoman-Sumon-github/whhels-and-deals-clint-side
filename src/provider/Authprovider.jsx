@@ -21,6 +21,7 @@ const handlelogins = (email,password) =>{
 }
 useEffect(()=>{
     const unSubcribe = onAuthStateChanged(auth,loggedUser=>{
+        console.log(loggedUser)
         setUser(loggedUser)
     })
     return ()=>{

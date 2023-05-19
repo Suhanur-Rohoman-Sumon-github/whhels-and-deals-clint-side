@@ -9,7 +9,7 @@ const CarsDtails = () => {
             <section>
                 <h1>this is img section</h1>
             </section>
-            <section className='flex'>
+            <section className='lg:flex'>
                 <div className='w-[85%]'>
                     <div className="card w-full glass">
                         <figure><img src={Picture} className='w-full h-96' alt="car!" /></figure>
