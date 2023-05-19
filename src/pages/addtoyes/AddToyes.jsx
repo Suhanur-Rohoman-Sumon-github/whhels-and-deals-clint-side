@@ -19,7 +19,6 @@ const AddToyes = () => {
         const price = form.price.value
         const availbaleQuantity = form.availbaleQuantity.value
         const img = form.img.value
-        console.log(img)
         const subCatagory = selectedCar;
         const details = form.textarea.value
         const newData = {
@@ -54,15 +53,15 @@ const AddToyes = () => {
                 <div className='w-10/12 mx-auto border  border-error p-4'>
                     <form onSubmit={handleAdd}>
                         <div>
-                            <input type="text" value={user?.email } placeholder="name" name='name' required className="input w-1/2  input-bordered " />
-                            <select id="cars" onChange={handleSubChange} className='w-1/2 border py-3 rounded-md' name="subCatagory" form="carform">
+                            <input type="text" value={user?.email } placeholder="name" name='name' required className="input input-error w-1/2  input-bordered " />
+                            <select id="cars" onChange={handleSubChange} className='w-1/2 input-error border py-3 rounded-md' name="subCatagory" form="carform">
                                 <option value="sports car">sports car</option>
                                 <option value="truck">truck </option>
                                 <option value="mini police car">mini police car</option>
                             </select>
                         </div>
                         <div>
-                            <select id="cars" onChange={handleCarChange} className='w-1/2 border py-3 rounded-md' name="subCatagory" form="carform">
+                            <select id="cars" onChange={handleCarChange} className='w-1/2 input-error border py-3 rounded-md' name="subCatagory" form="carform">
                                 <option value="Red Sports Car">Red Sports Car</option>
                                 <option value="Blue Racing Car">Blue Racing Car</option>
                                 <option value="Yellow Speedster">Yellow Speedster</option>
@@ -79,13 +78,13 @@ const AddToyes = () => {
                                 <option value="Patrol Guardian">Patrol Guardian</option>
                                 <option value="Rapid Response Unit">Rapid Response Unit</option>
                             </select>
-                            <input type="text" placeholder="price" name='price' className="input w-1/2 input-bordered mt-4 " />
+                            <input type="text" placeholder="price" name='price' className="input input-error w-1/2 input-bordered mt-4 " />
                         </div>
                         <div>
-                            <input type="text" placeholder="img" name='img' required className="input w-1/2  input-bordered " />
-                            <input type="text" name='availbaleQuantity' placeholder="availbale Quantity" className="input w-1/2 input-bordered" />
+                            <input  type="text" placeholder="img" name='img' required className="input input-error mt-4  w-1/2  input-bordered " />
+                            <input type="text" name='availbaleQuantity' placeholder="availbale Quantity" className="input input-error w-1/2 input-bordered" />
                         </div>
-                        <textarea name="textarea" className='border border-error my-4' cols="35" id="" rows="10"></textarea>
+                        <textarea name="textarea" className="w-full  my-4 h-64 textarea textarea-error" placeholder="toy discription"></textarea>
                         <button className='btn btn-error w-full text-white'>add</button>
                     </form>
                 </div>

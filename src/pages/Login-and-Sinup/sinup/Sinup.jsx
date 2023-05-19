@@ -3,10 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { AuthContext } from '../../../provider/Authprovider';
-import { updateProfile } from 'firebase/auth';
-
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../../../firebase/firebase.config';
+const auth = getAuth(app)
 const Sinup = () => {
-    const {handleSinups,user,auth} = useContext(AuthContext)
+    const {handleSinups,user} = useContext(AuthContext)
     const navigat = useNavigate()
     const handaleSinup = (event) => {
         event.preventDefault()
@@ -20,11 +21,10 @@ const Sinup = () => {
         handleSinups(email, password)
             .then((result) => {
                 console.log(result)
-                updateProfile(auth,result, {
-                    displayName: name, photoURL: imgUrl
-                })
-                console.log(displayName)
                 navigat('/')
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: imgUrl
+                })    
             })
             .catch(error => console.error(error))
     }

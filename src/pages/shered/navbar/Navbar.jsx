@@ -4,6 +4,7 @@ import { AuthContext } from '../../../provider/Authprovider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
+    console.log(user)
     const handleLogout = () => {
         logOut()
     }
@@ -33,15 +34,33 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/'}>Home</NavLink> </li>
-                        {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-warning' : 'nothing'} to={'/alltoyes'}>All Toys</NavLink> </li>}
-                        {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-warning' : 'nothing'} to={'/addtoyes'}>Add A Toy</NavLink> </li>}
-                        {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-warning' : 'nothing'} to={'/mytoyes'}>My Toys</NavLink> </li>}
+                        {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/alltoyes'}>All Toys</NavLink> </li>}
+                        {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/addtoyes'}>Add A Toy</NavLink> </li>}
+                        {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/mytoyes'}>My Toys</NavLink> </li>}
                         <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/blog'}> Blogs</NavLink> </li>
                     </ul>
+
                 </div>
                 <div className="navbar-end">
+
+                    {user && <div className="dropdown dropdown-end">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img src={user.photoURL} title={user.displayName} />
+                            </div>
+                        </label>
+                        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                            <li>
+                                <a className="justify-between">
+                                    Profile
+                                    <span className="badge">New</span>
+                                </a>
+                            </li>
+                            <li><a>Settings</a></li>
+                            {user && <button onClick={handleLogout} className='btn btn-error text-white'>logut</button>}
+                        </ul>
+                    </div>}
                     {!user && <Link to={'/login'}><button className='btn btn-error text-white'>login</button></Link>}
-                    {user && <button onClick={handleLogout} className='btn btn-error text-white'>logut</button>}
                 </div>
             </div>
         </div>
