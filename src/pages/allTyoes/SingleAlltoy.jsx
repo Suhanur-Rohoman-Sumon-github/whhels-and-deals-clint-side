@@ -37,6 +37,7 @@ const SingleAlltoy = ({ alltoy,handleButtonClick,selectedData  }) => {
                     <img src={selectedData?.Picture} className='w-full h-64'  alt="" />
                     <h3 className="text-lg font-bold">{selectedData?.Name}</h3>
                     <p className="py-4">{selectedData?.discription}</p>
+                    <button className='btn btn-error text-white'> Add </button>
                 </div>
             </div>
         </tr>

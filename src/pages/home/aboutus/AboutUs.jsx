@@ -1,17 +1,9 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { } from 'react';
+
 
 
 const AboutUs = () => {
-    useEffect(() => {
-        AOS.init({
-            // Customize AOS options here
-            // For example:
-            duration: 800,  // Animation duration
-            offset: 200,    // Offset (in pixels) from the element's position
-        });
-    }, []);
+    
     return (
         <div className="hero min-h-screen  bg-gray-300">
             <div data-aos="fade-up" className="hero-content flex-col lg:flex-row ">

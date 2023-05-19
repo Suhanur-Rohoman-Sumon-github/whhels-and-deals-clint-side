@@ -1,17 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { } from 'react';
 import { Circle } from 'rc-progress';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 const WhyChoseUs = () => {
-    useEffect(() => {
-        AOS.init({
-            // Customize AOS options here
-            // For example:
-            duration: 800,  // Animation duration
-            offset: 200,    // Offset (in pixels) from the element's position
-        });
-    }, []);
+
     return (
         <div className='  bg-gray-400 '>
             <h1 data-aos="fade-up" className='text-center text-white font-bold text-4xl py-11'> Why chose use </h1>

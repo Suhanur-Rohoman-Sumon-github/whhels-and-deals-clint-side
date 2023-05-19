@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SingleCars from './cars/SingleCars';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import SingleTruks from './truks/SingleTruks';
 import PoliceCartDtails from './police/PoliceCartDtails';
 
@@ -16,14 +14,7 @@ const ShopeByCatagory = () => {
             .then(res => res.json())
             .then(data => setCars(data))
     }, [])
-    useEffect(() => {
-        AOS.init({
-            // Customize AOS options here
-            // For example:
-            duration: 800,  // Animation duration
-            offset: 200,    // Offset (in pixels) from the element's position
-        });
-    }, []);
+   
 
     useEffect(() => {
         fetch('http://localhost:5001/truks')
