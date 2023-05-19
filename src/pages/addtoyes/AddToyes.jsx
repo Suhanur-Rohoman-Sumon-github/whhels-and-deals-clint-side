@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../provider/Authprovider';
 
 const AddToyes = () => {
     const [selectedCar, setSelectedCar] = useState('');
+    const { user } = useContext(AuthContext)
     const handleCarChange = (event) => {
         setSelectedCar(event.target.value);
-      };
+    };
     const handleAdd = (event) => {
         event.preventDefault()
         const form = event.target
@@ -12,7 +14,7 @@ const AddToyes = () => {
         const toy = form.toy.value
         const price = form.price.value
         const availbaleQuantity = form.price.value
-        const img = form.price.value
+        const img = form.img.value
         const subCatagory = selectedCar;
         const textarea = form.textarea.value
         const newData = {
@@ -25,15 +27,15 @@ const AddToyes = () => {
             subCatagory
 
         }
-        fetch('http://localhost:5001/toyes',{
-            method:'POST',
-            headers:{
-                'content-type':'appliction/json'
+        fetch('http://localhost:5001/mytoyes', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(newData)
+            body: JSON.stringify(newData)
         })
-        .then(res=>res.json())
-        .then(data=>console.log(data))
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
     return (
         <div>
@@ -47,7 +49,7 @@ const AddToyes = () => {
                 <div className='w-10/12 mx-auto border  border-error p-4'>
                     <form onSubmit={handleAdd}>
                         <div>
-                            <input type="text" placeholder="name" name='name' required className="input w-1/2  input-bordered " />
+                            <input type="text" value={user?.displayName } placeholder="name" name='name' required className="input w-1/2  input-bordered " />
                             <input type="text" name='toy' placeholder="toy name" className="input w-1/2 input-bordered" />
                         </div>
                         <div>

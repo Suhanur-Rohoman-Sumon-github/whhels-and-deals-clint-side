@@ -6,7 +6,7 @@ const AllTyos = () => {
     const [alltoyes, setAlltoyes] = useState([])
     const [selectedData, setSelectedData] = useState(null);
     useEffect(() => {
-        fetch('http://localhost:5001/alltoyes')
+        fetch('http://localhost:5001/mytoyes')
             .then(res => res.json())
             .then(data => setAlltoyes(data))
     })

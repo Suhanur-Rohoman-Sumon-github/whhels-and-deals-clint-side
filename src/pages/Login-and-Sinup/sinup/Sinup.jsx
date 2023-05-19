@@ -6,7 +6,7 @@ import { AuthContext } from '../../../provider/Authprovider';
 import { updateProfile } from 'firebase/auth';
 
 const Sinup = () => {
-    const {handleSinups,user} = useContext(AuthContext)
+    const {handleSinups,user,auth} = useContext(AuthContext)
     const navigat = useNavigate()
     const handaleSinup = (event) => {
         event.preventDefault()
@@ -21,7 +21,7 @@ const Sinup = () => {
             .then((result) => {
                 console.log(result.user)
                 navigat('/')
-                updateProfile(user, {
+                updateProfile(auth.currentUser, {
                     displayName: name, photoURL: imgUrl
                 })
             })

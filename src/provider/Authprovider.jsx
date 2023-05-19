@@ -34,7 +34,8 @@ const authInfo = {
     handleSinups ,
     user,
     logOut,
-    handlelogins
+    handlelogins,
+    auth
 
 }
     return (
