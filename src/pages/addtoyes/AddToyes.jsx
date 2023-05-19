@@ -19,6 +19,7 @@ const AddToyes = () => {
         const price = form.price.value
         const availbaleQuantity = form.availbaleQuantity.value
         const img = form.img.value
+        console.log(img)
         const subCatagory = selectedCar;
         const details = form.textarea.value
         const newData = {

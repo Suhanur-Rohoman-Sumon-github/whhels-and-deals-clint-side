@@ -3,24 +3,13 @@ import { AuthContext } from '../../provider/Authprovider';
 import SingleMyToy from './SingleMyToy';
 
 const MyToyes = () => {
-    const [alltoyes, setAlltoyes] = useState([])
     const [myToyes, setMyToyes] = useState([])
     const {user} = useContext(AuthContext)
-    const [name,setName] =useState('')
-    console.log(name)
     const [selectedData, setSelectedData] = useState(null);
     useEffect(() => {
         fetch(`http://localhost:5001/mytoyes?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToyes(data))
-    }, [])
-    useEffect(()=>{
-        alltoyes.map(alltoy=>setName(alltoy.name))
-    },[])
-    useEffect(() => {
-        fetch('http://localhost:5001/mytoyes')
-            .then(res => res.json())
-            .then(data => setAlltoyes(data))
     }, [])
     
     const handleButtonClick = (id) => {
@@ -50,7 +39,7 @@ const MyToyes = () => {
                         {/* head */}
                         <thead>
                             <tr>
-                                <th>user picture</th>
+                                <th>delete</th>
                                 <th>user name</th>
                                 <th>price</th>
                                 <th>Catagoty</th>

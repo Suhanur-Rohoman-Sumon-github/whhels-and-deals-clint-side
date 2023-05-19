@@ -10,6 +10,7 @@ import AllTyos from "../pages/allTyoes/AllTyos";
 import AddToyes from "../pages/addtoyes/AddToyes";
 import Blog from "../pages/blog/Blog";
 import MyToyes from "../pages/myTooyes/MyToyes";
+import PrivateRout from "./PrivateRout";
 
 const router = createBrowserRouter ([
     {
@@ -28,17 +29,17 @@ const router = createBrowserRouter ([
            },
            {
             path:'/cars/:id',
-            element:<CarsDtails />,
+            element:<PrivateRout ><TrukCartDetails /></PrivateRout>,
             loader:({params})=>fetch(`http://localhost:5001/cars/${params.id}`)
            },
            {
             path:'/traks/:id',
-            element:<TrukCartDetails />,
+            element:<PrivateRout ><CarsDtails /></PrivateRout>,
             loader:({params})=>fetch(`http://localhost:5001/truks/${params.id}`)
            },
            {
             path:'/police/:id',
-            element:<SinglePolices />,
+            element:<PrivateRout ><SinglePolices /></PrivateRout>,
             loader:({params})=>fetch(`http://localhost:5001/police/${params.id}`)
            },
            {
@@ -55,7 +56,7 @@ const router = createBrowserRouter ([
         },
         {
             path:'/mytoyes',
-            element:<MyToyes/>
+            element:<PrivateRout ><MyToyes/></PrivateRout>
         }
         ]
     }
