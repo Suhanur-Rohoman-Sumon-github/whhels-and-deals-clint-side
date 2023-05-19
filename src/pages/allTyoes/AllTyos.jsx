@@ -8,7 +8,7 @@ const AllTyos = () => {
     useEffect(() => {
         fetch('http://localhost:5001/mytoyes')
             .then(res => res.json())
-            .then(data => setAlltoyes(data))
+            .then(data => setAlltoyes(data.slice(0 ,20)))
     })
     const handleButtonClick = (id) => {
         console.log(id)
