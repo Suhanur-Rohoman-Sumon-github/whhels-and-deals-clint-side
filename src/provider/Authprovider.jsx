@@ -9,7 +9,6 @@ const auth = getAuth(app)
 
 const Authprovider = ({children}) => {
     const [user,setUser] = useState(null)
-    console.log(user)
     const [loding, setLoading] = useState(true)
 
 const handleSinups = (email,password) =>{
@@ -27,7 +26,6 @@ const handlelogins = (email,password) =>{
 }
 useEffect(()=>{
     const unSubcribe = onAuthStateChanged(auth,loggedUser=>{
-        console.log(loggedUser)
         setUser(loggedUser)
         setLoading(false)
     })

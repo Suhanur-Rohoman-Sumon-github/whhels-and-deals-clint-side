@@ -3,19 +3,18 @@ import { AuthContext } from '../../provider/Authprovider';
 import SingleMyToy from './SingleMyToy';
 
 const MyToyes = () => {
+    const { user } = useContext(AuthContext)
     const [myToyes, setMyToyes] = useState([])
-    const {user} = useContext(AuthContext)
     const [selectedData, setSelectedData] = useState(null);
     useEffect(() => {
         fetch(`http://localhost:5001/mytoyes?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToyes(data))
     }, [])
-    
+
     const handleButtonClick = (id) => {
         console.log(id)
         const selected = myToyes.find((entry) => entry._id == id);
-        console.log(selected)
         setSelectedData(selected);
     };
     const handleDelete = (id) => {
@@ -23,7 +22,13 @@ const MyToyes = () => {
             method: 'DELETE'
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    const updatedData = myToyes.filter(myTo => myTo._id !== id)
+                    setMyToyes(updatedData)
+                }
+            })
     }
     return (
         <div>
@@ -34,6 +39,13 @@ const MyToyes = () => {
                     <h1 data-aos="fade-left" className='text-5xl text-error text-center  ml-14 font-bold   absolute inset-0 '>My tyoes</h1></div>
             </section>
             <section className='w-11/12 mx-auto'>
+                <div className="dropdown dropdown-hover">
+                    <label tabIndex={0} className="btn btn-error text-white my-4 m-1">sort by</label>
+                    <ul tabIndex={0} className="dropdown-content menu text-error p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a>descending </a></li>
+                        <li><a>ascending</a></li>
+                    </ul>
+                </div>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         {/* head */}

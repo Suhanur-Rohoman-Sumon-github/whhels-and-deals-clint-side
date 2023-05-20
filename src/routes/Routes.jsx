@@ -44,7 +44,7 @@ const router = createBrowserRouter ([
            },
            {
             path:'/alltoyes',
-            element:<AllTyos />
+            element:<PrivateRout ><AllTyos /></PrivateRout>
         },
         {
             path:'/blog',
@@ -52,11 +52,11 @@ const router = createBrowserRouter ([
         },
         {
             path:'/addtoyes',
-            element:<AddToyes />
+            element:<PrivateRout ><AddToyes /></PrivateRout>
         },
         {
             path:'/mytoyes',
-            element:<MyToyes/>
+            element:<PrivateRout><MyToyes/></PrivateRout>
         }
         ]
     }

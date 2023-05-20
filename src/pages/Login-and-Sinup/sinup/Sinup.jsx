@@ -3,12 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { AuthContext } from '../../../provider/Authprovider';
-import { getAuth, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
 import app from '../../../firebase/firebase.config';
 const auth = getAuth(app)
 const Sinup = () => {
     const {handleSinups,user} = useContext(AuthContext)
     const navigat = useNavigate()
+    const googleproviders = new GoogleAuthProvider()
     const handaleSinup = (event) => {
         event.preventDefault()
         const form = event.target
@@ -28,7 +29,14 @@ const Sinup = () => {
             })
             .catch(error => console.error(error))
     }
-
+    const handaleGoogleSinup = ()=>{
+        signInWithPopup(auth,googleproviders)
+        .then(result=>{
+            console.log(result.user)
+            navigat('/')
+        })
+        .catch(err=>console.error(err))
+    }
     useEffect(() => {
         AOS.init({
             // Customize AOS options here
@@ -90,8 +98,8 @@ const Sinup = () => {
                     <hr className='border border-spacing-7 mx-2' />
                     <h1 className='text-center '>or</h1>
                     <div className='px-4'>
-                        <button className='btn btn-error btn-outline w-full '>continue with google</button>
-                        <button className='btn btn-error btn-outline w-full mt-4'>constinu with github</button>
+                        <button onClick={handaleGoogleSinup} className='btn btn-error btn-outline w-full '>continue with google</button>
+                        
                         <h1>Already have an account please <Link to={'/login'}><button className="btn btn-link text-error">Login</button> </Link> </h1>
                     </div>
                 </div>

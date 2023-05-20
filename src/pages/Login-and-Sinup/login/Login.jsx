@@ -1,11 +1,16 @@
 import React, { useContext, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/Authprovider';
-
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../../firebase/firebase.config';
+const auth = getAuth(app)
 const Login = () => {
     const {handlelogins} = useContext(AuthContext)
+    const googleAuthProvider = new GoogleAuthProvider()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
     const navigat = useNavigate()
     const handleLogin = (event) =>{
         event.preventDefault()
@@ -15,14 +20,23 @@ const Login = () => {
         
         const password = form.passwords.value
         handlelogins(email,password)
+        
         .then(result=>{
-            console.log(result.user)
-            navigat('/')
+            const loggedUser = result.user
+            navigat(from, { replace :true })
         })
+        
         .catch(error=>console.error(error))
             
         
     }
+    const handaleGoogleLogin = ()=>{
+        signInWithPopup(auth,googleAuthProvider)
+        .then(result=>{
+            console.log(result.user)
+            navigat('/')
+        })
+        .catch(err=>console.error(err))}
     useEffect(() => {
         AOS.init({
             // Customize AOS options here
@@ -58,7 +72,7 @@ const Login = () => {
                     <hr className='border border-spacing-7 mx-2' />
                     <h1 className='text-center '>or</h1>
                     <div className='px-4'>
-                        <button className='btn btn-error btn-outline w-full '>login with google</button>
+                        <button onClick={handaleGoogleLogin} className='btn btn-error btn-outline w-full '>login with google</button>
                         <button className='btn btn-error btn-outline w-full mt-4'>login with github</button>
                         <h1>haven't an account please <Link to={'/sinup'}><button className="btn btn-link text-error">Sinup</button> </Link> </h1>
                     </div>

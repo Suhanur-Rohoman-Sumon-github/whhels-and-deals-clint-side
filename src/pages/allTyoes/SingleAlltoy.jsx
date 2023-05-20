@@ -1,9 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { AuthContext } from '../../provider/Authprovider';
-
+import React from 'react';
 
 const SingleAlltoy = ({ alltoy, handleButtonClick, selectedData }) => {
-    const { user} = useContext(AuthContext)
+
 
     const { _id, availbaleQuantity,img,toy,subCatagory, name, price } = alltoy;
 
