@@ -5,10 +5,12 @@ import SingleAlltoy from './SingleAlltoy';
 const AllTyos = () => {
     const [alltoyes, setAlltoyes] = useState([])
     const [selectedData, setSelectedData] = useState(null);
+    const [sort, setSort] = useState(null)
+    // sorting e problem ase
     useEffect(() => {
         fetch('http://localhost:5001/mytoyes')
             .then(res => res.json())
-            .then(data => setAlltoyes(data.slice(0 ,20)))
+            .then(data => setAlltoyes(data.slice(0, 20)))
     })
     const handleButtonClick = (id) => {
         console.log(id)
@@ -16,7 +18,12 @@ const AllTyos = () => {
         console.log(selected)
         setSelectedData(selected);
     };
-    
+    useEffect(() => {
+        fetch(`http://localhost:5001/mytoyes?sort=${sort}`)
+            .then(res => res.json())
+            .then(data => setAlltoyes(data))
+    }, [sort])
+
     return (
         <div>
             <section>
@@ -26,6 +33,13 @@ const AllTyos = () => {
                     <h1 data-aos="fade-left" className='text-5xl text-error text-center  ml-14 font-bold   absolute inset-0 '>All tyoes</h1></div>
             </section>
             <section className='w-11/12 mx-auto'>
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn m-1">Click</label>
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><button  onClick={()=>setSort(true)}>descending </button ></li>
+                        <li><button onClick={()=>setSort(false)}>ascending </button></li>
+                    </ul>
+                </div>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         {/* head */}
@@ -46,7 +60,7 @@ const AllTyos = () => {
                                 alltoyes.map(alltoy => <SingleAlltoy
                                     key={alltoy._id}
                                     alltoy={alltoy}
-                                    handleButtonClick ={handleButtonClick }
+                                    handleButtonClick={handleButtonClick}
                                     selectedData={selectedData}
                                 ></SingleAlltoy>)
                             }

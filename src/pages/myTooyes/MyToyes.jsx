@@ -1,16 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/Authprovider';
 import SingleMyToy from './SingleMyToy';
+import { Link } from 'react-router-dom';
 
 const MyToyes = () => {
     const { user } = useContext(AuthContext)
     const [myToyes, setMyToyes] = useState([])
     const [selectedData, setSelectedData] = useState(null);
+   
     useEffect(() => {
         fetch(`http://localhost:5001/mytoyes?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToyes(data))
     }, [])
+
+   
 
     const handleButtonClick = (id) => {
         console.log(id)
@@ -39,13 +43,7 @@ const MyToyes = () => {
                     <h1 data-aos="fade-left" className='text-5xl text-error text-center  ml-14 font-bold   absolute inset-0 '>My tyoes</h1></div>
             </section>
             <section className='w-11/12 mx-auto'>
-                <div className="dropdown dropdown-hover">
-                    <label tabIndex={0} className="btn btn-error text-white my-4 m-1">sort by</label>
-                    <ul tabIndex={0} className="dropdown-content menu text-error p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>descending </a></li>
-                        <li><a>ascending</a></li>
-                    </ul>
-                </div>
+               
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         {/* head */}

@@ -21,6 +21,8 @@ const AddToyes = () => {
         const img = form.img.value
         const subCatagory = selectedCar;
         const details = form.textarea.value
+        const userName = form.userName.value
+        const ratings = form.Rating.value
         const newData = {
             name,
             toy,
@@ -28,7 +30,7 @@ const AddToyes = () => {
             details,
             img,
             availbaleQuantity,
-            subCatagory
+            subCatagory,userName ,
 
         }
         fetch('http://localhost:5001/mytoyes', {
@@ -83,6 +85,10 @@ const AddToyes = () => {
                         <div>
                             <input  type="text" placeholder="img" name='img' required className="input input-error mt-4  w-1/2  input-bordered " />
                             <input type="text" name='availbaleQuantity' placeholder="availbale Quantity" className="input input-error w-1/2 input-bordered" />
+                        </div>
+                        <div>
+                            <input  type="text" value={user.displayName} placeholder="userName" name='userName' required className="input input-error mt-4  w-1/2  input-bordered " />
+                            <input type="text" name='Rating' placeholder="ratings" className="input input-error w-1/2 input-bordered" />
                         </div>
                         <textarea name="textarea" className="w-full  my-4 h-64 textarea textarea-error" placeholder="toy discription"></textarea>
                         <button className='btn btn-error w-full text-white'>add</button>

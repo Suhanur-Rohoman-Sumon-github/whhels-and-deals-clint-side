@@ -3,12 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 
 const CarsDtails = () => {
     const cars = useLoaderData()
-    const { _id, Picture, Name, Price,discription} = cars
+    const { _id, Picture, Name, Price, discription } = cars
     return (
-        <div>
-            <section>
-                <h1>this is img section</h1>
-            </section>
+        <>
+
             <section className='lg:flex'>
                 <div className='w-[85%]'>
                     <div className="card w-full glass">
@@ -23,7 +21,7 @@ const CarsDtails = () => {
                     <h1>suhanur rohoman sumon</h1>
                 </div>
             </section>
-        </div>
+        </>
     );
 };
 

@@ -34,7 +34,7 @@ const router = createBrowserRouter ([
            },
            {
             path:'/traks/:id',
-            element:<CarsDtails />,
+            element:<PrivateRout ><CarsDtails /></PrivateRout>,
             loader:({params})=>fetch(`http://localhost:5001/truks/${params.id}`)
            },
            {

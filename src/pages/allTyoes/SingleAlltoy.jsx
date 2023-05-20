@@ -28,6 +28,7 @@ const SingleAlltoy = ({ alltoy, handleButtonClick, selectedData }) => {
             <div className="modal ">
                 <div className="modal-box relative bg-error text-white">
                     <label htmlFor="my-modal-3" className="btn btn-sm bg-white text-black btn-circle absolute right-2 top-2">✕</label>
+                    <img src={selectedData?.img} className='w-full h-64' alt="" />
                     <h3 className="text-lg font-bold">{selectedData?.Name}</h3>
                     <p className="py-4">catagory : {selectedData?.toy}</p>
                     <p className="py-4"> sub catagory {selectedData?.subCatagory}</p>

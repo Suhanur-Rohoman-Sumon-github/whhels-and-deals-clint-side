@@ -23,7 +23,7 @@ const Login = () => {
         
         .then(result=>{
             const loggedUser = result.user
-            navigat(from, { replace :true })
+            navigat(from, { replace :true })||'/'
         })
         
         .catch(error=>console.error(error))

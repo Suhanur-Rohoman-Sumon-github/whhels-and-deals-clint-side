@@ -9,14 +9,15 @@ const auth = getAuth(app)
 
 const Authprovider = ({children}) => {
     const [user,setUser] = useState(null)
+
     const [loding, setLoading] = useState(true)
 
 const handleSinups = (email,password) =>{
-    setLoading(false)
+    setLoading(true)
   return  createUserWithEmailAndPassword(auth,email,password)
 }
 const logOut = () => {
-    setLoading(false)
+    setLoading(true)
     return signOut(auth)
 }
 const handlelogins = (email,password) =>{

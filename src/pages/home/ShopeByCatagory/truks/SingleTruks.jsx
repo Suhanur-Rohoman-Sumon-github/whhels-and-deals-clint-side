@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegStar, FaStar } from 'react-icons/fa';
+import { FaArrowRight, FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const SingleTruks = ({truck}) => {
                         /></p>
                     </div>
                     <div>
-                        <Link to={`/traks/${_id}`}><button className="btn btn-error btn-outline">Veiw dtails</button></Link>
+                        <Link to={`/traks/${_id}`}><button className="btn btn-error btn-outline"><FaArrowRight /></button></Link>
                     </div>
                 </div>
             </div>
