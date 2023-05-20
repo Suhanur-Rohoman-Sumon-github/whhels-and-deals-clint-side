@@ -21,14 +21,13 @@ const Sinup = () => {
 
         handleSinups(email, password)
             .then((result) => {
-                user.displayName=name;
-                user.photoURL=imgUrl;
                 console.log(result)
-                navigat('/')
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: imgUrl
-                })    
-            })
+                }) 
+                .then(() => {
+                    navigat('/') 
+    })})
             .catch(error => console.error(error))
     }
     const handaleGoogleSinup = ()=>{

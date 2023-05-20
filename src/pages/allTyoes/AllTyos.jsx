@@ -6,16 +6,13 @@ const AllTyos = () => {
     const [alltoyes, setAlltoyes] = useState([])
     const [selectedData, setSelectedData] = useState(null);
     const [sort, setSort] = useState(false)
-    console.log(sort)
     useEffect(() => {
         fetch('http://localhost:5001/mytoyes')
             .then(res => res.json())
-            .then(data => setAlltoyes(data))
+            .then(data => setAlltoyes(data.slice(0 ,20)))
     },[])
     const handleButtonClick = (id) => {
-        console.log(id)
         const selected = alltoyes.find((entry) => entry._id == id);
-        console.log(selected)
         setSelectedData(selected);
     };
     useEffect(() => {
@@ -34,10 +31,10 @@ const AllTyos = () => {
             </section>
             <section className='w-11/12 mx-auto'>
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn m-1">Click</label>
+                    <label tabIndex={0} className="btn btn-error text-white my-4 m-1 ">Click</label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><button  onClick={()=>setSort(true)}>descending </button ></li>
-                        <li><button onClick={()=>setSort(false)}>ascending </button></li>
+                        <li><button className='btn btn-error text-white' onClick={()=>setSort(true)}>descending </button ></li>
+                        <li><button className='btn btn-error mt-4 text-white' onClick={()=>setSort(false)}>ascending </button></li>
                     </ul>
                 </div>
                 <div className="overflow-x-auto w-full">
