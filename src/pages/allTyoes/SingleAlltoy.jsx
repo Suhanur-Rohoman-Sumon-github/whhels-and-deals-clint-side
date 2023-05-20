@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
 
 const SingleAlltoy = ({ alltoy, handleButtonClick, selectedData }) => {
 
@@ -34,6 +36,13 @@ const SingleAlltoy = ({ alltoy, handleButtonClick, selectedData }) => {
                     <p className="py-4"> sub catagory {selectedData?.subCatagory}</p>
                     <p className="py-4"> Quantity{selectedData?.availbaleQuantity}</p>
                     <p className="py-4">dtails: {selectedData?.details}</p>
+                    <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                            placeholderRating={selectedData?.ratings}
+                            readonly
+                            emptySymbol={<FaRegStar />}
+                            placeholderSymbol={<FaStar className='text-warning' />}
+                            fullSymbol={<FaStar />}
+                        /></p>
                 </div>
             </div>
         </tr>

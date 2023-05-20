@@ -4,6 +4,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
+import Rating from 'react-rating';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 
 const Testimonial = () => {
     return (
@@ -31,6 +33,13 @@ const Testimonial = () => {
                             <div className="card-body">
                                 <h2 className="card-title">Abdul khaled</h2>
                                 <p>I absolutely love shopping at your toy sell shop! The variety of toys available is incredible, and I always find something unique and exciting for my kids. The quality of the toys is top-notch, and they provide endless hours of fun. The customer service is also exceptional, with friendly and knowledgeable staff who are always ready to assist. I highly recommend your toy shop to all parents!"</p>
+                                <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                                    placeholderRating={5}
+                                    readonly
+                                    emptySymbol={<FaRegStar />}
+                                    placeholderSymbol={<FaStar className='text-warning' />}
+                                    fullSymbol={<FaStar />}
+                                /></p>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -40,6 +49,14 @@ const Testimonial = () => {
                             <div className="card-body">
                                 <h2 className="card-title">rohimur </h2>
                                 <p>I can't say enough good things about your toy sell shop! It's like a wonderland for kids and even adults who are young at heart. The collection of toys is extensive, covering all age groups and interests. Whether I'm looking for educational toys or the latest trending items, your shop never disappoints. The prices are reasonable, and the shopping experience is always enjoyable. Thank you for making toy shopping a delightful experience!</p>
+
+                                <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                                    placeholderRating={5}
+                                    readonly
+                                    emptySymbol={<FaRegStar />}
+                                    placeholderSymbol={<FaStar className='text-warning' />}
+                                    fullSymbol={<FaStar />}
+                                /></p>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -49,6 +66,14 @@ const Testimonial = () => {
                             <div className="card-body">
                                 <h2 className="card-title">rohimur </h2>
                                 <p>I can't say enough good things about your toy sell shop! It's like a wonderland for kids and even adults who are young at heart. The collection of toys is extensive, covering all age groups and interests. Whether I'm looking for educational toys or the latest trending items, your shop never disappoints. The prices are reasonable, and the shopping experience is always enjoyable. Thank you for making toy shopping a delightful experience!</p>
+
+                                <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                                    placeholderRating={5}
+                                    readonly
+                                    emptySymbol={<FaRegStar />}
+                                    placeholderSymbol={<FaStar className='text-warning' />}
+                                    fullSymbol={<FaStar />}
+                                /></p>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -58,6 +83,14 @@ const Testimonial = () => {
                             <div className="card-body">
                                 <h2 className="card-title">rohimur </h2>
                                 <p>I can't say enough good things about your toy sell shop! It's like a wonderland for kids and even adults who are young at heart. The collection of toys is extensive, covering all age groups and interests. Whether I'm looking for educational toys or the latest trending items, your shop never disappoints. The prices are reasonable, and the shopping experience is always enjoyable. Thank you for making toy shopping a delightful experience!</p>
+
+                                <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                                    placeholderRating={5}
+                                    readonly
+                                    emptySymbol={<FaRegStar />}
+                                    placeholderSymbol={<FaStar className='text-warning' />}
+                                    fullSymbol={<FaStar />}
+                                /></p>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -67,6 +100,14 @@ const Testimonial = () => {
                             <div className="card-body">
                                 <h2 className="card-title">rohimur </h2>
                                 <p>I can't say enough good things about your toy sell shop! It's like a wonderland for kids and even adults who are young at heart. The collection of toys is extensive, covering all age groups and interests. Whether I'm looking for educational toys or the latest trending items, your shop never disappoints. The prices are reasonable, and the shopping experience is always enjoyable. Thank you for making toy shopping a delightful experience!</p>
+
+                                <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                                    placeholderRating={5}
+                                    readonly
+                                    emptySymbol={<FaRegStar />}
+                                    placeholderSymbol={<FaStar className='text-warning' />}
+                                    fullSymbol={<FaStar />}
+                                /></p>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -76,6 +117,14 @@ const Testimonial = () => {
                             <div className="card-body">
                                 <h2 className="card-title">rohimur </h2>
                                 <p>I can't say enough good things about your toy sell shop! It's like a wonderland for kids and even adults who are young at heart. The collection of toys is extensive, covering all age groups and interests. Whether I'm looking for educational toys or the latest trending items, your shop never disappoints. The prices are reasonable, and the shopping experience is always enjoyable. Thank you for making toy shopping a delightful experience!</p>
+
+                                <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                                    placeholderRating={5}
+                                    readonly
+                                    emptySymbol={<FaRegStar />}
+                                    placeholderSymbol={<FaStar className='text-warning' />}
+                                    fullSymbol={<FaStar />}
+                                /></p>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -83,8 +132,16 @@ const Testimonial = () => {
                         <div className="card w-full py-11 bg-base-100 shadow-xl">
                             <figure><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHsAewMBIgACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAQIDBAUHBgj/xAA/EAABAwIDBAcGAwYGAwAAAAABAAIDBBEFBiESEzFRBzJBUmFxgRQiM0KRoRVyoiOSk7HBwkOCstLw8SQ0U//EABoBAAIDAQEAAAAAAAAAAAAAAAAEAQIDBQb/xAAjEQADAAICAgICAwAAAAAAAAAAAQIDERIhBDEFgUFRBjNh/9oADAMBAAIRAxEAPwDYlMi+G3yQ3TO6FHdI5r3AE2BsEAHU/E9EdL1neSVEBI279TftRTfs7bGhKAHJ/hlZfnLpZwnApJKPCGNxSuYbOLHWhjI5u7T4D6hR+nPNk2GYRBgtHO5lTX3dM5psWwj/AHHTyBWBAWQB1mOdJGbMbed/i81NEf8ABoiYWj6an1K5eaeeokMlRNJM8/NI8uP3TaCCSyw7MGNYY5rsPxauptk3AiqHAfS9itAy1004vSGOHMUDMRgGhmiAjmHj3XfbzWWoIA9d5Yx/C8xUrK3B6ps8JOy4cHsdyc06g/8AY0V4/qnyXkXJmZ6vKeOw4lSudurhtTCOEsfaPPtB7CvVtPUioijlil24pQHNcODmnUFBAFNj+G3yCLdM7oUZ0jw4gE2BsEAHUfEKbUmJokbtPFzzS90zuhADHtD+QS2wh42iTd2qT7O/m1KEwYNkg6aaIAS5xhOw3UcdUGnfmz9LckZbvvfbp2aoAbjV2t+SAPMPTDVyVXSHijXkltPu4IwexoYD/Mk+q4ztsu76bqcU/SHXTAHZqYYpv07P9i0KPIWD4llbC6LEqXYq4aSNpqITsyNds669ouToVS7Uey8Q69GBILT67ocrmyn8PxemkjvoKiNzHAf5b3V/lTotw/C5RVY1IzEahvUj2LRM8bHrHz08FV5Y17LLFTZk+GZYx7FYPaMOwmqng7JAyzXeRNr+igVtFV0FQaeupZqaYcY5mFp89exeqQA0ANAAAsAOACq8xYBh+YsPdRYlCHN/w5B1ond5p/5dZrP32i7wddM8xr1H0TVBr+jvBp3l23FEYf4bi0fZoXmfF8OnwnE6nD6sWmp5Cx3jyI8CLH1XovoQds9HNC0g+/NNb+I5MmDO59odyCWIQ8bRJ97VJ9nd3glCZrBs2Pu6IIEueYTsN1Hii9ofyCMsMx22m3gUPZ382oAd3zO99kw6NznFzW3BN7puxUyL4bfJADcThG3ZebG97JMx3gGx71tSiqBeT0R0/F1+SAMc6VMuyYvmTA8XazapTLFR1TRxa0yXafI7RH0WiHiU5iNK1sjo5G7UbjtDTTjcfQppI5Kb6Y7jlLtAQQQWZoBBBBAGcdLeUo8RpW41Rgivi2IXRgf+wHODWjwcC7jy0Xf5Awt2BZeocHcWvfTRlz3t4FxcXO+7k7JGyUASNDg1wcAeYNwfqrjCYS2KSVw6wsPJMYrptSL5YlJssN9H3lHdG8uJa0kE3BSLHkpkZ9xvkE0LCInCNmy82PJK3zO99kxUfETdvBAE9QpPiO8yj3j+8U+xjXMBLQSQgAqb4fqk1Xy+aKUmN+yzQWvohD+0JD/etzQAwYWzgseOI48lUSMdHI5jxZwNiuhkaGMJaLHwVZXQF43rdXAa+IWGaNraNsV8XpleggglBsCCCXFGZXhrVK7Ib0SaCnEjXyvbtNFgL81PZo5vmEdKwNDYh1B2KS6NoFw0XHBPY44oSuuT2OFQX9d3mUreP7xUhkbS0EtBJFyrlAqf4YTqiyksfZhIHIJO8f3igB72dvMpBlcw7IAsNEr2kd0pO5L/AHwQNrVACmtEw2nceGiJ/wCw1ZxPNBrtz7hG123CrMWzDg+HtviOJ0lLs/LJMA4+nH7II2WTZDKQx3A8kmpjjjgkc51gGlcLXdKmXaN3/iCqrnDhuothv1db+SsqHHhmLDaevjaY4pRcRbV9gg2IJ7dQVLl6BUm+hEFSWANkuQNL9oUtr2vF2uBHmodVHb3x62UfyXMuXD0zqRq1tFjJPHHxNzyCkYFJvq1+8NgWWaPVU7Wlzg0cSp8TN20Bp1Hb4rXDLqt/oyz1Mzr8s6hzBENtvEc0kTOcQCBqbLhsZ6SKPBMQGG19JPMRG175oS0lpN7AtNuyx49qnYbn/K1c5obisdO8/JVNMR8rnT7p7izn8kdd7O3mU2ZnNJaLWboigr4KmMSU8jJYzwdG8OB9Qlbkv94OHvaqCwprBMNt3HwR+zt5lJD9z7hBJ5hH7SO6UANbmTkqbN2b8PynhzZKsmWpkBEFMw+9IRx8gO0/1V1idfT4Zh9RXVb9iCnjMjz4BeYcx43VZhxioxOtJ25TZjL6RsHVaPL+ZKvE7KXWiwzHnfH8wyvNTWvp6c9WmpnFjGjkbau9T9FzlhcmwudSggt0kvQu3seZ1QtK6KMQ26Ssw551icJox4HQ/cD6rNWdQK+yTiH4bmWjkcbRTO3Enk7Qfeyra2iYembVx0PBQZo92+3y9injiuJzTnhmG15oaOj380ElpzLdgB7o7fXh5pDPMuds63hRlyXxxrZ19NFst2ndYp5xDWlzjZoFyeSr8Axmnx3DhW0jZGs2th7ZG2LXAXIvwPHiFAz1iP4dlmqc11pJxuI9e13H7XWuKVpKRfPym3z9mSY3XHE8XrK48J5S5v5eDf0gKul63onE3L1vROCGxdHVVNDKJaKomppAb7UMhYfstNyT0r1FPLHRZoeJoHHZbXBlnR/nA0I8RrzvxWWIKrlMlU0esSRUBssJD43gFrmm4IRbmTurLuhPNLn7eW615Ow0y0bnH5fmZ6cR68lrlxzCwa09DEva2ZX02YoabAaTDY3AOrZtqQc42a/6iz6LGFonThWCbNdNSM4UlIL27zySfsGrO1tC6Mbe6AgggrlBbHG9k5qNWkg9hHEJuPrJxBB6HyrVx4ngVDiIAMk8Ic/wdwcPqCso6VN0M5T7loDt1HvCPmds8T6W+i6robxPe4dXYW8+9TyCaP8AK7j9CP1Lg89VHtOb8VkBuBPsfugN/oud5fU6PSfArlmdfpGtdG4gfkrDxFG0NIeHjm7bNyuI6X6xv4pSYZE67IY99IOTnaD6AH95dL0Q1IkyrLE51hT1LwTyBAd/UrK8x4kcXx6uxC92zzEs/ING/YBb+P3KZzPklwz3P+lY4kC4TRJJ1TriADdMpo5wEEEEEk/AcRdhGN0OIsIHs87Xuv3b2cP3SV6eFiLtOh1C8ouG00tPaLL1NledlflvC6uwJmpInk27S0XWWRGuI8859rvxHOeMVF7tFS6Jvkz3P7VQJyoc6SolkebvfI5zjzJOqbWqWjJvbAgggggCeabgJlORdqAOo6OsTGFZto3vdswz3p5Dfsdw/UGqjxGb2jEauf8A+s73/VxKjgkEEGxGoPJBc7z/AMHqP45reT6Ouyvjf4Xk/MkTXESyiNkVjreTaaSPIAn0XII7m1rmx4hEUx4n9SOZ8115tfQ3IdbJCM8USZOWBBBBABreOjbMMMOScMhmcA+Nr2cewSOA+wCwZWVJiFXBTtihnexjb2aOzVRS2Wl6P//Z" alt="Shoes" /></figure>
                             <div className="card-body">
-                                <h2 className="card-title">rohimur </h2>
                                 <p>I can't say enough good things about your toy sell shop! It's like a wonderland for kids and even adults who are young at heart. The collection of toys is extensive, covering all age groups and interests. Whether I'm looking for educational toys or the latest trending items, your shop never disappoints. The prices are reasonable, and the shopping experience is always enjoyable. Thank you for making toy shopping a delightful experience!</p>
+
+                                <h2 className="card-title">rohimur </h2>
+                                <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                                    placeholderRating={5}
+                                    readonly
+                                    emptySymbol={<FaRegStar />}
+                                    placeholderSymbol={<FaStar className='text-warning' />}
+                                    fullSymbol={<FaStar />}
+                                /></p>
                             </div>
                         </div>
                     </SwiperSlide>

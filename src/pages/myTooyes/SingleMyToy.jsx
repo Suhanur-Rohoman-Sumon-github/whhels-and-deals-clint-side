@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
 
-const SingleMyToy = ({ myToy, handleButtonClick, selectedData,handleDelete }) => {
-    const { _id, availbaleQuantity,img, toy, subCatagory, name, price } = myToy;
+const SingleMyToy = ({ myToy, handleButtonClick, selectedData, handleDelete }) => {
+    const { _id, availbaleQuantity, img, toy, subCatagory, name, price } = myToy;
     return (
         <tr>
             <td>
-                <button onClick={()=>handleDelete(_id)} className="btn btn-error text-white btn-circle">
+                <button onClick={() => handleDelete(_id)} className="btn btn-error text-white btn-circle">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </td>
@@ -22,11 +24,19 @@ const SingleMyToy = ({ myToy, handleButtonClick, selectedData,handleDelete }) =>
             <div className="modal ">
                 <div className="modal-box relative bg-error text-white">
                     <label htmlFor="my-modal-3" className="btn btn-sm bg-white text-black btn-circle absolute right-2 top-2">✕</label>
+                    <img src={selectedData?.img} className='w-full h-64' alt="" />
                     <h3 className="text-lg font-bold">{selectedData?.Name}</h3>
                     <p className="py-4">catagory : {selectedData?.toy}</p>
                     <p className="py-4"> sub catagory {selectedData?.subCatagory}</p>
                     <p className="py-4"> Quantity{selectedData?.availbaleQuantity}</p>
                     <p className="py-4">dtails: {selectedData?.details}</p>
+                    <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                        placeholderRating={selectedData?.ratings}
+                        readonly
+                        emptySymbol={<FaRegStar />}
+                        placeholderSymbol={<FaStar className='text-warning' />}
+                        fullSymbol={<FaStar />}
+                    /></p>
                 </div>
             </div>
         </tr>

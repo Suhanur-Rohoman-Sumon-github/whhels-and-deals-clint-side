@@ -5,13 +5,13 @@ import SingleAlltoy from './SingleAlltoy';
 const AllTyos = () => {
     const [alltoyes, setAlltoyes] = useState([])
     const [selectedData, setSelectedData] = useState(null);
-    const [sort, setSort] = useState(null)
-    // sorting e problem ase
+    const [sort, setSort] = useState(false)
+    console.log(sort)
     useEffect(() => {
         fetch('http://localhost:5001/mytoyes')
             .then(res => res.json())
-            .then(data => setAlltoyes(data.slice(0, 20)))
-    })
+            .then(data => setAlltoyes(data))
+    },[])
     const handleButtonClick = (id) => {
         console.log(id)
         const selected = alltoyes.find((entry) => entry._id == id);
@@ -22,7 +22,7 @@ const AllTyos = () => {
         fetch(`http://localhost:5001/mytoyes?sort=${sort}`)
             .then(res => res.json())
             .then(data => setAlltoyes(data))
-    }, [sort])
+    }, [])
 
     return (
         <div>

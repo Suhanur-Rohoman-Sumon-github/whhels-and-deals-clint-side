@@ -30,7 +30,7 @@ const AddToyes = () => {
             details,
             img,
             availbaleQuantity,
-            subCatagory,userName ,
+            subCatagory,userName ,ratings
 
         }
         fetch('http://localhost:5001/mytoyes', {
