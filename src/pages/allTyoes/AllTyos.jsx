@@ -22,7 +22,7 @@ const AllTyos = () => {
         fetch(`http://localhost:5001/mytoyes?sort=${sort}`)
             .then(res => res.json())
             .then(data => setAlltoyes(data))
-    }, [])
+    }, [sort])
 
     return (
         <div>

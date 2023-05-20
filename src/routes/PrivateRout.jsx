@@ -6,11 +6,12 @@ const PrivateRout = ({children}) => {
     const {loding,user} = useContext(AuthContext)
     const location = useLocation()
     if(loding){
-        <progress className="progress w-56"></progress>
+     return   <progress className="progress w-56 "> loading .....</progress>
     }
-    if(user){
+    if(user!==null){
         return children
     }
+    else
    
     return <Navigate state={{from:location}} to={'/login'} replace></Navigate>
 };
