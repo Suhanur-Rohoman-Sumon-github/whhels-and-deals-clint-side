@@ -10,20 +10,20 @@ const ShopeByCatagory = () => {
     const [trucks, setTracks] = useState([])
     const [polices,setPolices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5001/cars')
+        fetch('https://wheels-and-deals-server-side.vercel.app/cars')
             .then(res => res.json())
             .then(data => setCars(data))
     }, [])
    
 
     useEffect(() => {
-        fetch('http://localhost:5001/truks')
+        fetch('https://wheels-and-deals-server-side.vercel.app/truks')
             .then(res => res.json())
             .then(data => setTracks(data))
             .catch(err => console.error(err))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5001/police')
+        fetch('https://wheels-and-deals-server-side.vercel.app/police')
             .then(res => res.json())
             .then(data => setPolices(data))
             .catch(err => console.error(err))

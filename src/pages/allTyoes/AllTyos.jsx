@@ -1,25 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import SingleAlltoy from './SingleAlltoy';
+import { AuthContext } from '../../provider/Authprovider';
+import { useNavigate } from 'react-router-dom';
 
 
 const AllTyos = () => {
+    const { user } = useContext(AuthContext)
+    const navigat = useNavigate
     const [alltoyes, setAlltoyes] = useState([])
+    const [filterToyes, setfilterToyes] = useState(alltoyes)
     const [selectedData, setSelectedData] = useState(null);
-    const [sort, setSort] = useState(false)
+    const [searchName, setSearchName] = useState('');
     useEffect(() => {
-        fetch('http://localhost:5001/mytoyes')
+        fetch('https://wheels-and-deals-server-side.vercel.app/mytoyes')
             .then(res => res.json())
-            .then(data => setAlltoyes(data.slice(0 ,20)))
-    },[])
+            .then(data => setAlltoyes(data.slice(0, 20)))
+    }, [])
+    const filteredData = alltoyes.filter(item =>
+        item.toy.toLowerCase().includes(searchName.toLowerCase()),
+
+    );
+
+    const handleSearch = () => {
+        setfilterToyes(filteredData)
+    }
+    const clearSearche = () => {
+        setSearchName('')
+        setfilterToyes(alltoyes)
+    }
+    useEffect(() => {
+        setfilterToyes(filteredData)
+
+    }, [])
+
+
     const handleButtonClick = (id) => {
-        const selected = alltoyes.find((entry) => entry._id == id);
-        setSelectedData(selected);
+        if (user) {
+            const selected = alltoyes.find((entry) => entry._id == id);
+            setSelectedData(selected);
+        }
+        else {
+            navigat('/login')
+        }
     };
-    useEffect(() => {
-        fetch(`http://localhost:5001/mytoyes?sort=${sort}`)
-            .then(res => res.json())
-            .then(data => setAlltoyes(data))
-    }, [sort])
+
 
     return (
         <div>
@@ -30,13 +54,18 @@ const AllTyos = () => {
                     <h1 data-aos="fade-left" className='text-5xl text-error text-center  ml-14 font-bold   absolute inset-0 '>All tyoes</h1></div>
             </section>
             <section className='w-11/12 mx-auto'>
-                <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-error text-white my-4 m-1 ">Click</label>
-                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><button className='btn btn-error text-white' onClick={()=>setSort(true)}>descending </button ></li>
-                        <li><button className='btn btn-error mt-4 text-white' onClick={()=>setSort(false)}>ascending </button></li>
-                    </ul>
+                <div className='my-4 w-full mx-auto'>
+                    <input
+                        type="text"
+                        className='input input-bordered input-error'
+                        value={searchName}
+                        onChange={(e) => setSearchName(e.target.value)}
+                        placeholder="Enter catagory"
+                    />
+                    <button className='btn btn-error ml-4 text-white' onClick={handleSearch}>Search</button>
+                    <button className='btn btn-error ml-4 text-white' onClick={clearSearche}>clear  Search</button>
                 </div>
+
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         {/* head */}
@@ -54,7 +83,7 @@ const AllTyos = () => {
                         <tbody >
                             {/* row 1 */}
                             {
-                                alltoyes.map(alltoy => <SingleAlltoy
+                                filterToyes.map(alltoy => <SingleAlltoy
                                     key={alltoy._id}
                                     alltoy={alltoy}
                                     handleButtonClick={handleButtonClick}

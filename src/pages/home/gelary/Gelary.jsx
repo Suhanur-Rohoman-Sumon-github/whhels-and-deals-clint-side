@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 const Gelary = () => {
     const [pictures, setPicture] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5001/gelary')
+        fetch('https://wheels-and-deals-server-side.vercel.app/gelary')
             .then(res => res.json())
             .then(data => setPicture(data))
     }, [])

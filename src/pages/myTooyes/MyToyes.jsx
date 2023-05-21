@@ -1,19 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/Authprovider';
 import SingleMyToy from './SingleMyToy';
-import { Link } from 'react-router-dom';
 
 const MyToyes = () => {
     const { user } = useContext(AuthContext)
+    console.log(user.email)
     const [myToyes, setMyToyes] = useState([])
+    const [sort, setSort] = useState(false)
     const [selectedData, setSelectedData] = useState(null);
    
     useEffect(() => {
-        fetch(`http://localhost:5001/mytoyes?email=${user?.email}`)
+        fetch(`https://wheels-and-deals-server-side.vercel.app/mytoyes?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToyes(data))
     }, [])
-
+    useEffect(() => {
+        fetch(`https://wheels-and-deals-server-side.vercel.app/mytoyes?sort=${sort}`)
+            .then(res => res.json())
+            .then(data => setMyToyes(data))
+    }, [sort])
    
 
     const handleButtonClick = (id) => {
@@ -22,7 +27,7 @@ const MyToyes = () => {
         setSelectedData(selected);
     };
     const handleDelete = (id) => {
-        fetch(`http://localhost:5001/mytoyes/${id}`, {
+        fetch(`https://wheels-and-deals-server-side.vercel.app/mytoyes/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -34,6 +39,7 @@ const MyToyes = () => {
                 }
             })
     }
+   
     return (
         <div>
             <section>
@@ -42,20 +48,28 @@ const MyToyes = () => {
                 <div className='absolute top-0 left-0 mt-64  opacity-70 w-full '>
                     <h1 data-aos="fade-left" className='text-5xl text-error text-center  ml-14 font-bold   absolute inset-0 '>My tyoes</h1></div>
             </section>
-            <section className='w-11/12 mx-auto'>
+            <section className=' mx-auto'>
+            <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-error text-white my-4 m-1 ">Click</label>
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><button className='btn btn-error text-white' onClick={()=>setSort(true)}>descending </button ></li>
+                        <li><button className='btn btn-error mt-4 text-white' onClick={()=>setSort(false)}>ascending </button></li>
+                    </ul>
+                </div>
                
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         {/* head */}
                         <thead>
-                            <tr>
+                            <tr className='text-error'>
                                 <th>delete</th>
                                 <th>user name</th>
                                 <th>price</th>
                                 <th>Catagoty</th>
                                 <th>sub catagory</th>
-                                <th>availbale products</th>
+                                <th>availbale</th>
                                 <th>dtails</th>
+                                <th>update</th>
                             </tr>
                         </thead>
                         <tbody >

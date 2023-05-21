@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/Authprovider';
+import { toast } from 'react-hot-toast';
 
 const AddToyes = () => {
     const [selectedCar, setSelectedCar] = useState('');
@@ -33,7 +34,7 @@ const AddToyes = () => {
             subCatagory,userName ,ratings
 
         }
-        fetch('http://localhost:5001/mytoyes', {
+        fetch('https://wheels-and-deals-server-side.vercel.app/mytoyes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -57,6 +58,7 @@ const AddToyes = () => {
                         <div>
                             <input type="text" value={user?.email } placeholder="name" name='name' required className="input input-error w-1/2  input-bordered " />
                             <select id="cars" onChange={handleSubChange} className='w-1/2 input-error border py-3 rounded-md' name="subCatagory" form="carform">
+                                <option value="catagory">catagory</option>
                                 <option value="sports car">sports car</option>
                                 <option value="truck">truck </option>
                                 <option value="mini police car">mini police car</option>
@@ -91,7 +93,7 @@ const AddToyes = () => {
                             <input type="text" name='Rating' placeholder="ratings" className="input input-error w-1/2 input-bordered" />
                         </div>
                         <textarea name="textarea" className="w-full  my-4 h-64 textarea textarea-error" placeholder="toy discription"></textarea>
-                        <button className='btn btn-error w-full text-white'>add</button>
+                        <button   className='btn btn-error w-full text-white'> add</button>
                     </form>
                 </div>
             </section>

@@ -33,7 +33,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/'}>Home</NavLink> </li>
-                        {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/alltoyes'}>All Toys</NavLink> </li>}
+                         <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/alltoyes'}>All Toys</NavLink> </li>
                         {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/addtoyes'}>Add A Toy</NavLink> </li>}
                         {user && <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/mytoyes'}>My Toys</NavLink> </li>}
                         <li> <NavLink className={({ isActive }) => isActive ? 'text-error' : 'nothing'} to={'/blog'}> Blogs</NavLink> </li>

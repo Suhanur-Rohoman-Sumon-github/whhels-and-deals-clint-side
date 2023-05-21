@@ -32,21 +32,21 @@ const router = createBrowserRouter ([
            {
             path:'/cars/:id',
             element:<PrivateRout ><TrukCartDetails /></PrivateRout>,
-            loader:({params})=>fetch(`http://localhost:5001/cars/${params.id}`)
+            loader:({params})=>fetch(`https://wheels-and-deals-server-side.vercel.app/cars/${params.id}`)
            },
            {
             path:'/traks/:id',
             element:<PrivateRout ><CarsDtails /></PrivateRout>,
-            loader:({params})=>fetch(`http://localhost:5001/truks/${params.id}`)
+            loader:({params})=>fetch(`https://wheels-and-deals-server-side.vercel.app/truks/${params.id}`)
            },
            {
             path:'/police/:id',
             element:<PrivateRout ><SinglePolices /></PrivateRout>,
-            loader:({params})=>fetch(`http://localhost:5001/police/${params.id}`)
+            loader:({params})=>fetch(`https://wheels-and-deals-server-side.vercel.app/police/${params.id}`)
            },
            {
             path:'/alltoyes',
-            element:<PrivateRout ><AllTyos /></PrivateRout>
+            element:<AllTyos />
         },
         {
             path:'/blog',
