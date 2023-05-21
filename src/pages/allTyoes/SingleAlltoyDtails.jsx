@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { useLoaderData } from 'react-router-dom';
+import UseTitle from '../../title/UseTitle';
 
 const SingleAlltoyDtails = () => {
     const [alltoyes, setAlltoyes] = useState([])
+    UseTitle('whhel and deel /silgle toy dtails')
 
     const data = useLoaderData()
     console.log(data)

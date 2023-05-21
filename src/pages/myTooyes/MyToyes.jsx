@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/Authprovider';
 import SingleMyToy from './SingleMyToy';
 import Swal from 'sweetalert2';
+import UseTitle from '../../title/UseTitle';
 
 const MyToyes = () => {
     const { user } = useContext(AuthContext)
@@ -9,6 +10,7 @@ const MyToyes = () => {
     const [myToyes, setMyToyes] = useState([])
     const [sort, setSort] = useState(false)
     const [selectedData, setSelectedData] = useState(null);
+    UseTitle('whhel and deel /my toy')
 
     useEffect(() => {
         fetch(`https://wheels-and-deals-server-side.vercel.app/mytoyes?email=${user?.email}`)

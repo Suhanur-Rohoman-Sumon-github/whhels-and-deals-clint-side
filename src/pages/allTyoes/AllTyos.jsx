@@ -4,6 +4,7 @@ import { AuthContext } from '../../provider/Authprovider';
 import { useNavigate } from 'react-router-dom';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import UseTitle from '../../title/UseTitle';
 
 
 const AllTyos = () => {
@@ -12,6 +13,7 @@ const AllTyos = () => {
     const [alltoyes, setAlltoyes] = useState([])
     const [selectedData, setSelectedData] = useState(null);
     const [searchName, setSearchName] = useState('');
+    UseTitle('whhel and deel /all toy')
     useEffect(() => {
         fetch('https://wheels-and-deals-server-side.vercel.app/mytoyes')
             .then(res => res.json())

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UseTitle from '../../title/UseTitle';
+UseTitle('whhel and deel /add a toy')
 
 
 

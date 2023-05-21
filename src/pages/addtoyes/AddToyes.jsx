@@ -2,11 +2,14 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/Authprovider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UseTitle from '../../title/UseTitle';
+
 
 const AddToyes = () => {
     const [selectedCar, setSelectedCar] = useState('');
     const [selectedSubCar, setSelectedSubCar] = useState('');
     const { user } = useContext(AuthContext)
+   UseTitle('add a toy')
     const handleCarChange = (event) => {
         setSelectedCar(event.target.value);
     };
