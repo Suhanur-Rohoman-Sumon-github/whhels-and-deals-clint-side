@@ -8,7 +8,7 @@ const AllTyos = () => {
     const { user } = useContext(AuthContext)
     const navigat = useNavigate
     const [alltoyes, setAlltoyes] = useState([])
-    const [filterToyes, setfilterToyes] = useState(alltoyes)
+    console.log(alltoyes)
     const [selectedData, setSelectedData] = useState(null);
     const [searchName, setSearchName] = useState('');
     useEffect(() => {
@@ -16,22 +16,24 @@ const AllTyos = () => {
             .then(res => res.json())
             .then(data => setAlltoyes(data.slice(0, 20)))
     }, [])
+   
     const filteredData = alltoyes.filter(item =>
         item.toy.toLowerCase().includes(searchName.toLowerCase()),
 
+
     );
+   
+    const handleChange=(e)=>{
+     setSearchName(e.target.value)
+     console.log(e.target.value)
+     if(e.target.value.lenght ===0){
+        setfilterToyes(alltoyes)
+     }
+    }
 
     const handleSearch = () => {
-        setfilterToyes(filteredData)
+        setAlltoyes(filteredData)
     }
-    const clearSearche = () => {
-        setSearchName('')
-        setfilterToyes(alltoyes)
-    }
-    useEffect(() => {
-        setfilterToyes(filteredData)
-
-    }, [])
 
 
     const handleButtonClick = (id) => {
@@ -59,11 +61,10 @@ const AllTyos = () => {
                         type="text"
                         className='input input-bordered input-error'
                         value={searchName}
-                        onChange={(e) => setSearchName(e.target.value)}
+                        onChange={handleChange}
                         placeholder="Enter catagory"
                     />
-                    <button className='btn btn-error ml-4 text-white' onClick={handleSearch}>Search</button>
-                    <button className='btn btn-error ml-4 text-white' onClick={clearSearche}>clear  Search</button>
+                    <button className='btn btn-error ml-4 ' onClick={handleSearch}>Search</button>
                 </div>
 
                 <div className="overflow-x-auto w-full">
@@ -83,7 +84,7 @@ const AllTyos = () => {
                         <tbody >
                             {/* row 1 */}
                             {
-                                filterToyes.map(alltoy => <SingleAlltoy
+                                alltoyes.map(alltoy => <SingleAlltoy
                                     key={alltoy._id}
                                     alltoy={alltoy}
                                     handleButtonClick={handleButtonClick}

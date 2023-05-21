@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/Authprovider';
-import { toast } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddToyes = () => {
     const [selectedCar, setSelectedCar] = useState('');
@@ -14,7 +15,11 @@ const AddToyes = () => {
     };
     const handleAdd = (event) => {
         event.preventDefault()
+
         const form = event.target
+        toast.success('product added', {
+            position: toast.POSITION.TOP_CENTER
+          });
         const name = form.name.value
         const toy = selectedSubCar
         const price = form.price.value
@@ -34,6 +39,8 @@ const AddToyes = () => {
             subCatagory,userName ,ratings
 
         }
+        
+
         fetch('https://wheels-and-deals-server-side.vercel.app/mytoyes', {
             method: 'POST',
             headers: {
@@ -94,6 +101,7 @@ const AddToyes = () => {
                         </div>
                         <textarea name="textarea" className="w-full  my-4 h-64 textarea textarea-error" placeholder="toy discription"></textarea>
                         <button   className='btn btn-error w-full text-white'> add</button>
+                        <ToastContainer />
                     </form>
                 </div>
             </section>

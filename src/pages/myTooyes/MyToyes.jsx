@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/Authprovider';
 import SingleMyToy from './SingleMyToy';
+import Swal from 'sweetalert2';
 
 const MyToyes = () => {
     const { user } = useContext(AuthContext)
@@ -8,7 +9,7 @@ const MyToyes = () => {
     const [myToyes, setMyToyes] = useState([])
     const [sort, setSort] = useState(false)
     const [selectedData, setSelectedData] = useState(null);
-   
+
     useEffect(() => {
         fetch(`https://wheels-and-deals-server-side.vercel.app/mytoyes?email=${user?.email}`)
             .then(res => res.json())
@@ -19,7 +20,7 @@ const MyToyes = () => {
             .then(res => res.json())
             .then(data => setMyToyes(data))
     }, [sort])
-   
+
 
     const handleButtonClick = (id) => {
         console.log(id)
@@ -27,19 +28,37 @@ const MyToyes = () => {
         setSelectedData(selected);
     };
     const handleDelete = (id) => {
-        fetch(`https://wheels-and-deals-server-side.vercel.app/mytoyes/${id}`, {
-            method: 'DELETE'
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://wheels-and-deals-server-side.vercel.app/mytoyes/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            const updatedData = myToyes.filter(myTo => myTo._id !== id)
+                            setMyToyes(updatedData)
+                        }
+                    })
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount > 0) {
-                    const updatedData = myToyes.filter(myTo => myTo._id !== id)
-                    setMyToyes(updatedData)
-                }
-            })
+
     }
-   
+
     return (
         <div>
             <section>
@@ -49,14 +68,14 @@ const MyToyes = () => {
                     <h1 data-aos="fade-left" className='text-5xl text-error text-center  ml-14 font-bold   absolute inset-0 '>My tyoes</h1></div>
             </section>
             <section className=' mx-auto'>
-            <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-error text-white my-4 m-1 ">Click</label>
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-error text-white my-4 m-1 ">Filter</label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><button className='btn btn-error text-white' onClick={()=>setSort(true)}>descending </button ></li>
-                        <li><button className='btn btn-error mt-4 text-white' onClick={()=>setSort(false)}>ascending </button></li>
+                        <li><button className='btn btn-error text-white' onClick={() => setSort(true)}>descending </button ></li>
+                        <li><button className='btn btn-error mt-4 text-white' onClick={() => setSort(false)}>ascending </button></li>
                     </ul>
                 </div>
-               
+
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         {/* head */}
