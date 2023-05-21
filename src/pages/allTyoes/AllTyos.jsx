@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import SingleAlltoy from './SingleAlltoy';
 import { AuthContext } from '../../provider/Authprovider';
 import { useNavigate } from 'react-router-dom';
+import Rating from 'react-rating';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 
 
 const AllTyos = () => {
     const { user } = useContext(AuthContext)
-    const navigat = useNavigate
+    const navigat = useNavigate()
     const [alltoyes, setAlltoyes] = useState([])
-    console.log(alltoyes)
     const [selectedData, setSelectedData] = useState(null);
     const [searchName, setSearchName] = useState('');
     useEffect(() => {
@@ -16,19 +17,16 @@ const AllTyos = () => {
             .then(res => res.json())
             .then(data => setAlltoyes(data.slice(0, 20)))
     }, [])
-   
+
     const filteredData = alltoyes.filter(item =>
         item.toy.toLowerCase().includes(searchName.toLowerCase()),
 
 
     );
-   
-    const handleChange=(e)=>{
-     setSearchName(e.target.value)
-     console.log(e.target.value)
-     if(e.target.value.lenght ===0){
-        setfilterToyes(alltoyes)
-     }
+
+    const handleChange = (e) => {
+        setSearchName(e.target.value)
+
     }
 
     const handleSearch = () => {
@@ -37,13 +35,34 @@ const AllTyos = () => {
 
 
     const handleButtonClick = (id) => {
-        if (user) {
-            const selected = alltoyes.find((entry) => entry._id == id);
-            setSelectedData(selected);
-        }
-        else {
-            navigat('/login')
-        }
+        const selected = alltoyes.find((entry) => entry._id == id);
+        setSelectedData(selected);
+
+        { user ? <div><label htmlFor="my-modal-3"  className="btn btn-error text-white ">Details</label>
+
+        {/* Put this part before </body> tag */ }
+        <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+        <div className="modal ">
+            <div className="modal-box relative bg-error text-white">
+                <label htmlFor="my-modal-3" className="btn btn-sm bg-white text-black btn-circle absolute right-2 top-2">✕</label>
+                <img src={selectedData?.img} className='w-full h-64' alt="" />
+                <h3 className="text-lg font-bold">{selectedData?.Name}</h3>
+                <p className="py-4">catagory : {selectedData?.toy}</p>
+                <p className="py-4"> sub catagory {selectedData?.subCatagory}</p>
+                <p className="py-4"> Quantity{selectedData?.availbaleQuantity}</p>
+                <p className="py-4">dtails: {selectedData?.details}</p>
+                <p className='font-bold  text-black'>ratings : <Rating className='ml-2'
+                    placeholderRating={selectedData?.ratings}
+                    readonly
+                    emptySymbol={<FaRegStar />}
+                    placeholderSymbol={<FaStar className='text-warning' />}
+                    fullSymbol={<FaStar />}
+                /></p>
+            </div>
+        </div>
+         </div>: navigat('/login')   }
+
+ 
     };
 
 
@@ -88,7 +107,6 @@ const AllTyos = () => {
                                     key={alltoy._id}
                                     alltoy={alltoy}
                                     handleButtonClick={handleButtonClick}
-                                    selectedData={selectedData}
                                 ></SingleAlltoy>)
                             }
                         </tbody>

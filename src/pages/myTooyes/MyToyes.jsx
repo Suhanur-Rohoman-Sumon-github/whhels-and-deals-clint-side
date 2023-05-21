@@ -42,7 +42,7 @@ const MyToyes = () => {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
-                    .then(data => {
+                    .then(data =>{
                         console.log(data)
                         if (data.deletedCount > 0) {
                             const updatedData = myToyes.filter(myTo => myTo._id !== id)

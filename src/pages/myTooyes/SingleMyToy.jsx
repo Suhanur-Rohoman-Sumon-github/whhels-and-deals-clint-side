@@ -1,8 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { FaPen, FaRegStar, FaRegTrashAlt, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 
+
+
 const SingleMyToy = ({ myToy, handleButtonClick, selectedData, handleDelete, }) => {
+   
    
     const { _id, availbaleQuantity, img, toy, subCatagory, name, price } = myToy;
     const handleUpdate= (event) => {
@@ -45,6 +48,7 @@ const SingleMyToy = ({ myToy, handleButtonClick, selectedData, handleDelete, }) 
             <td>{subCatagory}</td>
             <td>{availbaleQuantity}</td>
             <td>
+            
                 {/* The button to open modal */}
                 <label htmlFor="my-modal-3" onClick={() => handleButtonClick(_id)} className="btn btn-error text-white ">Details</label>
 
@@ -71,7 +75,8 @@ const SingleMyToy = ({ myToy, handleButtonClick, selectedData, handleDelete, }) 
             </td>
             <td>
                 <td>
-                    <label  htmlFor="my-modal-4" className='btn text-white btn-error'><FaPen/></label>
+                 
+                  <label  htmlFor="my-modal-4" className='btn text-white btn-error'><FaPen/></label>
                     <input type="checkbox" id="my-modal-4" className="modal-toggle" />
                     <div className="modal ">
                         <div className="modal-box relative bg-error">
@@ -89,6 +94,7 @@ const SingleMyToy = ({ myToy, handleButtonClick, selectedData, handleDelete, }) 
                             </form>
                         </div>
                     </div>
+                  
                 </td>
             </td>
         </tr>

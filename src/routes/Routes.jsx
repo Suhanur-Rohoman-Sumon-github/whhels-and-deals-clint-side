@@ -12,6 +12,7 @@ import Blog from "../pages/blog/Blog";
 import MyToyes from "../pages/myTooyes/MyToyes";
 import PrivateRout from "./PrivateRout";
 import Error from "../error/Error";
+import SingleAlltoyDtails from "../pages/allTyoes/SingleAlltoyDtails";
 
 const router = createBrowserRouter ([
     {
@@ -59,6 +60,11 @@ const router = createBrowserRouter ([
         {
             path:'/mytoyes',
             element:<PrivateRout><MyToyes/></PrivateRout>
+        },
+        {
+            path:'/alltoyes/myToyes/:id',
+            element:<SingleAlltoyDtails />,
+            loader:({params})=>fetch(`https://wheels-and-deals-server-side.vercel.app/alltoyes/myToyes/${params.id}`)
         }
         ]
     }
