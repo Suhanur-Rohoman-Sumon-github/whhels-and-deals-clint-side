@@ -63,7 +63,7 @@ const router = createBrowserRouter ([
         },
         {
             path:'/alltoyes/myToyes/:id',
-            element:<SingleAlltoyDtails />,
+            element:<PrivateRout><SingleAlltoyDtails /></PrivateRout>,
             loader:({params})=>fetch(`https://wheels-and-deals-server-side.vercel.app/alltoyes/myToyes/${params.id}`)
         }
         ]

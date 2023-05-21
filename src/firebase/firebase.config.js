@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAJhuEXhVexosV2QZD79dVjC3Hbxl4I2-o",
-  authDomain: "wheels-and-deals-4f2d3.firebaseapp.com",
-  projectId: "wheels-and-deals-4f2d3",
-  storageBucket: "wheels-and-deals-4f2d3.appspot.com",
-  messagingSenderId: "872478766768",
-  appId: "1:872478766768:web:dc7e30d2e89822c80fad75"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PEOJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

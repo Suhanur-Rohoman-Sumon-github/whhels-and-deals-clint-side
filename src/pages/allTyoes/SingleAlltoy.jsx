@@ -23,7 +23,7 @@ const SingleAlltoy = ({ alltoy }) => {
             <td>{subCatagory}</td>
             <td>{availbaleQuantity}</td>
             <td>
-                <Link to={`myToyes/${_id}`}><button>dtails</button></Link>
+                <Link to={`myToyes/${_id}`}><button className='btn btn-error text-white'>dtails</button></Link>
             </td>
 
            
